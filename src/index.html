@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼹鼠导航</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./images/MoleIcon.png" type="image/x-icon">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="globalHeader">
+        <div class="headerContainer">
+            <div class="moleNavIcon">
+                <a href="./index.html">
+                    <img src="images/MoleNavIcon.png" alt="鼹鼠导航">
+                </a>
+            </div>
+            <div class="searchFormContainer">
+                <form id="searchForm" method="get" target="_blank" action="http://www.google.com/search">
+                    <input name="q" , type="text" , placeholder="Google一下前端知识" , autocomplete="off">
+                    <button id="btn-search" type="submit">搜索</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="globalMain">
+        <div class="siteListContainer">
+            <ul class="siteList">
+                <li>
+                    <div class="addSite">
+                        <img src="images/add.png" alt="添加">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="//at.alicdn.com/t/font_1756935_us5w5ygrmzq.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

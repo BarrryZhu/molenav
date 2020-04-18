@@ -1,0 +1,228 @@
+/* CSS reset */
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Style */
+
+body {
+    background: white;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* header */
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.moleNavIcon {
+    margin-top: 50px;
+    width: 200px;
+    max-width: 50%;
+}
+
+.moleNavIcon img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.searchFormContainer {
+    flex-grow: 1;
+    width: 500px;
+    margin: 20px;
+    max-width: 80%;
+}
+
+#searchForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 4px;
+    border: 2px solid #EEB46D;
+}
+
+#searchForm>input {
+    flex-grow: 1;
+    border-radius: 4px;
+    border: 0px;
+    font-size: 100%;
+    padding: 0 10px;
+}
+
+#searchForm>button {
+    background: #EEB46D;
+    font-size: 16px;
+    color: white;
+    white-space: nowrap;
+    padding: 5px 20px;
+    border: 0px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* 网站主体 */
+
+.siteListContainer {
+    margin-top: 50px;
+}
+
+.siteList {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.addSite {
+    opacity: 0.5;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+    width: 160px;
+    cursor: pointer;
+}
+
+.addSite:hover img {
+    color: #EEB46D;
+    transform: scale(1.3, 1.3);
+    transition: 0.2s;
+}
+
+.addSite>img {
+    max-width: 40px;
+    max-height: 40px;
+    margin: auto;
+}
+
+.site {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 120px;
+    width: 160px;
+    cursor: pointer;
+}
+
+.site>.siteLogo {
+    font-size: 48px;
+    color: #EEB46D;
+    margin: auto;
+}
+
+.site>.siteName {
+    font-size: 16px;
+    color: #EEB46D;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.site>.removeSite {
+    color: #EEB46D;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+    cursor: default;
+}
+
+.site:hover {
+    background: #EEB46D;
+    transition: 0.1s;
+}
+
+.site:hover .removeSite {
+    display: block;
+}
+
+.site:hover div,
+.site:hover span {
+    color: white;
+}
+
+/*
+
+.site figcaption {
+    text-align: center;
+}
+
+.site>div {
+    text-align: center;
+}
+
+.site>div>span {
+    line-height: 1.6em;
+    text-align: justify;
+    padding: 5px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #EEB46D;
+    font-weight: bold;
+    opacity: 0;
+    font-size: 14px;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale3d(0.9, 0.9, 1);
+    transform: scale3d(0.9, 0.9, 1);
+}
+
+figure.site:hover img {
+    -webkit-filter: blur(4px);
+}
+
+.addSite:hover img {
+    -webkit-transform: scale(1.5, 1.5);
+    transition: 0.2s;
+}
+
+figure.site:hover div>span {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+figure.site:hover figcaption,
+.addSite:hover figcaption {
+    transform: scale(1.2, 1.2);
+    transition: 0.2s;
+}
+ */
+
+
+/* 媒体查询 */
+/* 针对PC端 */
