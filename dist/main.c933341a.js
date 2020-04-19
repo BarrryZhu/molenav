@@ -142,8 +142,7 @@ var simplifyUrl = function simplifyUrl(url) {
 
 
 var simplifyName = function simplifyName(name) {
-  var sim = name.replace('[^\w]*', '').replace('-', '').replace(',', '').replace('，', '').trim();
-  console.log();
+  return name.replace('[^\w]*', '').replace('-', '').replace(',', '').replace('，', '').trim();
 };
 
 var render = function render() {
@@ -172,7 +171,7 @@ $('.addSite').on('click', function () {
 
   console.log('%c 添加的网站的URL: ', 'color: orange; font-weight: bold;', url);
   var request = new XMLHttpRequest();
-  request.open('GET', "http://textance.herokuapp.com/title/".concat(url));
+  request.open('GET', "https://textance.herokuapp.com/title/".concat(url));
 
   request.onreadystatechange = function () {
     if (request.readyState === 4) {
@@ -202,4 +201,4 @@ window.onbeforeunload = function () {
   localStorage.setItem('x', string);
 };
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.98d0daf8.js.map
+//# sourceMappingURL=main.c933341a.js.map

@@ -31,12 +31,11 @@ const simplifyUrl = (url) => {
 
 // 简化网站名称
 const simplifyName = (name) => {
-    const sim = name.replace('[^\w]*', '')
+    return name.replace('[^\w]*', '')
         .replace('-', '')
         .replace(',', '')
         .replace('，', '')
         .trim();
-    console.log()
 }
 
 
@@ -76,7 +75,7 @@ $('.addSite').on('click', () => {
     }
     console.log('%c 添加的网站的URL: ', 'color: orange; font-weight: bold;', url)
     const request = new XMLHttpRequest();
-    request.open('GET', `http://textance.herokuapp.com/title/${url}`);
+    request.open('GET', `https://textance.herokuapp.com/title/${url}`);
     request.onreadystatechange = () => {
         if (request.readyState === 4) {
             if (request.status >= 200 && request.status <= 300) {
