@@ -31,11 +31,12 @@ const simplifyUrl = (url) => {
 
 // 简化网站名称
 const simplifyName = (name) => {
-    return name.responseText.replace('\w+[-\s]', '')
+    const sim = name.replace('[^\w]*', '')
         .replace('-', '')
         .replace(',', '')
         .replace('，', '')
         .trim();
+    console.log()
 }
 
 
@@ -74,19 +75,29 @@ $('.addSite').on('click', () => {
         url = 'https://' + url
     }
     console.log('%c 添加的网站的URL: ', 'color: orange; font-weight: bold;', url)
-    $.ajax({
-        url: "http://textance.herokuapp.com/title/" + url,
-        complete: function (data) {
-            console.log(simplifyName(data));
-            hashMap.push({
-                name: simplifyName(data),
-                logo: simplifyName(data)[0].toUpperCase(),
-                url: url,
-                description: '描述'
-            })
-            render()
+    const request = new XMLHttpRequest();
+    request.open('GET', `http://textance.herokuapp.com/title/${url}`);
+    request.onreadystatechange = () => {
+        if (request.readyState === 4) {
+            if (request.status >= 200 && request.status <= 300) {
+                console.log('title获取成功！');
+                const data = request.response;
+                console.log(request.response);
+                console.log(simplifyName(data));
+                hashMap.push({
+                    name: simplifyName(data),
+                    logo: simplifyName(data)[0].toUpperCase(),
+                    url: url,
+                    description: '描述'
+                })
+                render()
+            } else {
+                alert('Title获取失败');
+            }
         }
-    });
+    }
+    request.send();
+
 })
 
 window.onbeforeunload = () => {

@@ -97,7 +97,6 @@ body {
 
 .siteList {
     display: flex;
-    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -172,57 +171,27 @@ body {
     color: white;
 }
 
-/*
-
-.site figcaption {
-    text-align: center;
-}
-
-.site>div {
-    text-align: center;
-}
-
-.site>div>span {
-    line-height: 1.6em;
-    text-align: justify;
-    padding: 5px 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: #EEB46D;
-    font-weight: bold;
-    opacity: 0;
-    font-size: 14px;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transform: scale3d(0.9, 0.9, 1);
-    transform: scale3d(0.9, 0.9, 1);
-}
-
-figure.site:hover img {
-    -webkit-filter: blur(4px);
-}
-
-.addSite:hover img {
-    -webkit-transform: scale(1.5, 1.5);
-    transition: 0.2s;
-}
-
-figure.site:hover div>span {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-}
-
-figure.site:hover figcaption,
-.addSite:hover figcaption {
-    transform: scale(1.2, 1.2);
-    transition: 0.2s;
-}
- */
-
-
 /* 媒体查询 */
 /* 针对PC端 */
+@media (min-width: 768px) {
+    .siteList {
+        justify-content: flex-start;
+    }
+}
+
+/*针对手机*/
+@media (max-width: 767px) {
+    .siteList {
+        margin-left: 20px;
+        margin-right: 20px;
+        justify-content: space-between;
+    }
+
+    .moleNavIcon {
+        margin-top: 20px;
+    }
+
+    .siteListContainer {
+        margin-top: 10px;
+    }
+}

@@ -142,7 +142,8 @@ var simplifyUrl = function simplifyUrl(url) {
 
 
 var simplifyName = function simplifyName(name) {
-  return name.responseText.replace('\w+[-\s]', '').replace('-', '').replace(',', '').replace('，', '').trim();
+  var sim = name.replace('[^\w]*', '').replace('-', '').replace(',', '').replace('，', '').trim();
+  console.log();
 };
 
 var render = function render() {
@@ -170,19 +171,30 @@ $('.addSite').on('click', function () {
   }
 
   console.log('%c 添加的网站的URL: ', 'color: orange; font-weight: bold;', url);
-  $.ajax({
-    url: "http://textance.herokuapp.com/title/" + url,
-    complete: function complete(data) {
-      console.log(simplifyName(data));
-      hashMap.push({
-        name: simplifyName(data),
-        logo: simplifyName(data)[0].toUpperCase(),
-        url: url,
-        description: '描述'
-      });
-      render();
+  var request = new XMLHttpRequest();
+  request.open('GET', "http://textance.herokuapp.com/title/".concat(url));
+
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      if (request.status >= 200 && request.status <= 300) {
+        console.log('title获取成功！');
+        var data = request.response;
+        console.log(request.response);
+        console.log(simplifyName(data));
+        hashMap.push({
+          name: simplifyName(data),
+          logo: simplifyName(data)[0].toUpperCase(),
+          url: url,
+          description: '描述'
+        });
+        render();
+      } else {
+        alert('Title获取失败');
+      }
     }
-  });
+  };
+
+  request.send();
 });
 
 window.onbeforeunload = function () {
@@ -190,4 +202,4 @@ window.onbeforeunload = function () {
   localStorage.setItem('x', string);
 };
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.292a5356.js.map
+//# sourceMappingURL=main.98d0daf8.js.map
